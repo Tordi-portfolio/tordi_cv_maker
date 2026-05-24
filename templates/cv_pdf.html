@@ -1,0 +1,30 @@
+<style>
+    body { font-family: sans-serif; line-height: 1.5; color: #333; }
+    h1 { margin: 0; color: #2563eb; }
+    h2 { border-bottom: 2px solid #2563eb; margin-top: 20px; color: #2563eb; }
+    .contact { font-size: 0.9em; margin-bottom: 15px; }
+</style>
+
+<h1>{{ cv.full_name }}</h1>
+<div class="contact">
+    {{ cv.title }} | {{ cv.location }} | {{ cv.phone }} | {{ cv.email }}<br>
+    {{ cv.linkedin }} | {{ cv.github }}
+</div>
+
+<h2>Professional Summary</h2>
+<p>{{ cv.summary }}</p>
+
+<h2>Skills</h2>
+<p>{{ cv.skills }}</p>
+
+<h2>Experience</h2>
+<p>{{ cv.experience|linebreaks }}</p>
+
+<h2>Education</h2>
+<p>{{ cv.education|linebreaks }}</p>
+
+<h2>Projects</h2>
+<p>{{ cv.projects|linebreaks }}</p>
+
+<h2>Certifications</h2>
+<p>{{ cv.certifications|linebreaks }}</p>

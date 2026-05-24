@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center py-16">
+    <h1 class="text-5xl font-extrabold text-gray-900 mb-4">Build Your Professional CV in Minutes</h1>
+    <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        A powerful tool designed for developers to create clean, ATS-friendly CVs and showcase their portfolio to the world.
+    </p>
+    <a href="{% url 'create_cv' %}" class="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-blue-700 transition">Get Started</a>
+</div>
+
+<div class="max-w-4xl mx-auto mt-12 bg-gray-50 p-8 rounded-xl border border-gray-200">
+    <h2 class="text-3xl font-bold mb-6 text-gray-800">About This Project</h2>
+    <p class="mb-4">This CV Maker was built to streamline the job application process for tech professionals. It focuses on clean data entry and professional PDF generation.</p>
+    
+    <h3 class="text-xl font-bold mt-6 mb-2">Technical Implementation</h3>
+    <ul class="list-disc pl-6 space-y-2 text-gray-700">
+        <li><strong>Backend:</strong> Django 6.0 with SQLite database.</li>
+        <li><strong>Frontend:</strong> Tailwind CSS for responsive, modern UI components.</li>
+        <li><strong>PDF Generation:</strong> Custom server-side rendering using xhtml2pdf.</li>
+        <li><strong>Auth System:</strong> Secure user accounts to manage and store personal CV data.</li>
+    </ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="text-2xl font-bold mb-6">All Registered CVs</h2>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div class="overflow-x-auto">
+    <table class="min-w-full bg-white shadow-md rounded-lg">
+        <thead class="bg-blue-600 text-white">
+            <tr>
+                <th class="py-3 px-4 text-left">Full Name</th>
+                <th class="py-3 px-4 text-left">Email</th>
+                <th class="py-3 px-4 text-left">Professional Title</th>
+                <th class="py-3 px-4 text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cv in cvs %}
+            <tr class="border-b">
+                <td class="py-3 px-4">{{ cv.full_name }}</td>
+                <td class="py-3 px-4">{{ cv.email }}</td>
+                <td class="py-3 px-4">{{ cv.title }}</td>
+                <td class="py-3 px-4 text-center">
+                    <div class="flex justify-center space-x-3">
+                        <a href="{% url 'cv_detail' cv.pk %}" class="text-blue-600 hover:underline font-semibold">View</a>
+                        
+                        {% if user == cv.user or user.is_staff %}
+                            <a href="{% url 'delete_cv' cv.pk %}" 
+                               onclick="return confirm('Are you sure you want to delete {{ cv.full_name }}\'s CV?')"
+                               class="text-red-600 hover:underline font-semibold">Delete</a>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

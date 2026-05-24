@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">Your CV Details</h2>
+    
+    <form method="post" class="space-y-4">
+        {% csrf_token %}
+        <div class="grid grid-cols-1 gap-4">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">
+            Save CV Details
+        </button>
+    </form>
+
+    {% if cv %}
+        <div class="mt-6">
+            <a href="{% url 'generate_pdf' %}" class="block w-full text-center bg-green-600 text-white py-2 rounded-lg hover:bg-green-700">
+                Download PDF
+            </a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+
+Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat similique dolorem nulla enim sapiente esse iusto aut quaerat quae quos blanditiis assumenda, consectetur rerum qui, veritatis impedit excepturi sint quibusdam.
+Officia, facilis nulla. Saepe ratione doloribus voluptas consequatur? Nihil a iure iusto distinctio ut rem fuga veritatis nesciunt magnam maiores minus tempore, voluptate sunt laudantium fugit dolor quisquam aperiam ullam.
